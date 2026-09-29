@@ -19,5 +19,4 @@ export const collaborations: Collaboration[] = [
   { name: "Ana Marina: },
   { name: "Vega City: },
    { name: "VTV2: },
-   
 ];
