@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   projects,
   getProjectBySlug,
   getAdjacentProject,
 } from "@/data/projects";
+import { youtubeThumbnail } from "@/lib/youtube";
 import ProjectGallery from "@/components/ProjectGallery";
+import YouTubeBackground from "@/components/YouTubeBackground";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -21,13 +22,15 @@ export function generateMetadata({
   const project = getProjectBySlug(params.slug);
   if (!project) return {};
 
+  const ogImage = youtubeThumbnail(project.cover.src);
+
   return {
     title: project.title,
     description: project.tagline,
     openGraph: {
       title: `${project.title} — Sky Moment`,
       description: project.tagline,
-      images: [{ url: project.cover.poster }],
+      images: ogImage ? [{ url: ogImage }] : undefined,
     },
   };
 }
@@ -46,28 +49,7 @@ export default function ProjectPage({
     <main>
       <section className="relative flex h-[85svh] min-h-[520px] w-full items-end overflow-hidden bg-base">
         <div className="absolute inset-0">
-          {project.cover.type === "video" ? (
-            <video
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              poster={project.cover.poster}
-            >
-              <source src={project.cover.src} type="video/mp4" />
-            </video>
-          ) : (
-            <Image
-              src={project.cover.src}
-              alt={project.title}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-          )}
+          <YouTubeBackground url={project.cover.src} />
           <div className="absolute inset-0 bg-gradient-to-t from-base via-base/30 to-transparent" />
         </div>
 

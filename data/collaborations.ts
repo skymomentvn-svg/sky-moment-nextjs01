@@ -1,22 +1,22 @@
 export type Collaboration = {
   name: string;
+  // Path to a logo file in /public/images/logos/, e.g. "/images/logos/sun-group.svg".
+  // Leave unset and LogoMarquee falls back to a clean text wordmark —
+  // no fake logo is ever generated.
   logo?: string;
 };
 
-// No real logo assets provided yet — rendered as minimal wordmarks
-// until real logo files are dropped into /public/images/logos/.
 export const collaborations: Collaboration[] = [
   { name: "Sun Group" },
-  { name: "Vin Wonders" },
+  { name: "VinFast" },
+  { name: "VinWonders" },
   { name: "Volkswagen" },
-  { name: "Marriott Resort" },
+  { name: "Marriott" },
   { name: "Hyatt Regency" },
-  { name: "VPS" },
+  { name: "VTV" },
+  { name: "VPS Cup" },
   { name: "KDI Holding" },
-  { name: "Sailing Club", logo: "public/images/logos/SCL.png" },
+  { name: "Sailing Club" },
   { name: "FlyVietnam" },
   { name: "Marmoris Yachting" },
-  { name: "Ana Marina" },
-  { name: "Vega City" },
-  { name: "VTV2" },
 ];

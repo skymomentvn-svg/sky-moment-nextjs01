@@ -2,17 +2,22 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { heroMedia } from "@/data/media";
+import YouTubeBackground from "./YouTubeBackground";
 
-// Video expected at: /public/videos/hero/sky-moment-hero.mp4
-// Replace this file with real footage — falls back to a gradient
-// field if the file is missing so the layout never breaks.
+// Local video expected at: /public/videos/hero/sky-moment-hero.mp4
+// (or switch data/media.ts to a YouTube link).
+// Replace with real footage — falls back to a gradient field if the
+// file is missing so the layout never breaks.
 export default function Hero() {
   const [videoFailed, setVideoFailed] = useState(false);
 
   return (
     <section className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-base">
       <div className="absolute inset-0">
-        {!videoFailed ? (
+        {heroMedia.kind === "youtube" ? (
+          <YouTubeBackground url={heroMedia.url} />
+        ) : !videoFailed ? (
           <video
             className="h-full w-full object-cover"
             autoPlay
@@ -23,7 +28,7 @@ export default function Hero() {
             poster="/images/hero/hero-poster.jpg"
             onError={() => setVideoFailed(true)}
           >
-            <source src="/videos/hero/sky-moment-hero.mp4" type="video/mp4" />
+            <source src={heroMedia.src} type="video/mp4" />
           </video>
         ) : (
           <div

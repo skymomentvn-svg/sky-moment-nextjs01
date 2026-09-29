@@ -4,8 +4,10 @@ export type Service = {
   title: string;
   summary: string;
   detail: string;
+  // "youtube": set src to a full YouTube URL (or bare video ID) —
+  // e.g. src: "https://www.youtube.com/watch?v=XXXXXXXXXXX"
   media: {
-    type: "video" | "image";
+    type: "video" | "image" | "youtube";
     src: string;
     poster?: string;
   };

@@ -8,7 +8,8 @@ export type ProjectCategory =
   | "Tourism";
 
 export type GalleryItem = {
-  type: "image" | "video";
+  // "youtube": set src to a full YouTube URL (or bare video ID)
+  type: "image" | "video" | "youtube";
   src: string;
   poster?: string;
   caption?: string;
@@ -24,14 +25,18 @@ export type Project = {
   description: string;
   services: string[];
   credits: { role: string; name: string }[];
+  // The Selected Work grid plays this directly in a lightbox — no
+  // separate project page needed. Just paste each project's real
+  // YouTube link here (any watch/youtu.be/shorts URL works).
   cover: {
-    type: "image" | "video";
+    type: "youtube";
     src: string;
-    poster: string;
   };
   gallery: GalleryItem[];
 };
 
+// TODO: replace every "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+// below with that project's real YouTube link.
 export const projects: Project[] = [
   {
     index: "01",
@@ -48,16 +53,8 @@ export const projects: Project[] = [
       { role: "FPV Pilot", name: "Sky Moment" },
       { role: "Editor", name: "Sky Moment" },
     ],
-    cover: {
-      type: "video",
-      src: "/videos/projects/vps-cup.mp4",
-      poster: "/images/projects/vps-cup-cover.jpg",
-    },
-    gallery: [
-      { type: "image", src: "/images/projects/vps-cup-1.jpg" },
-      { type: "image", src: "/images/projects/vps-cup-2.jpg" },
-      { type: "image", src: "/images/projects/vps-cup-3.jpg" },
-    ],
+    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    gallery: [],
   },
   {
     index: "02",
@@ -73,15 +70,8 @@ export const projects: Project[] = [
       { role: "Director", name: "Sky Moment" },
       { role: "FPV Pilot", name: "Sky Moment" },
     ],
-    cover: {
-      type: "image",
-      src: "/images/projects/alora-coral-fest-cover.jpg",
-      poster: "/images/projects/alora-coral-fest-cover.jpg",
-    },
-    gallery: [
-      { type: "image", src: "/images/projects/alora-1.jpg" },
-      { type: "image", src: "/images/projects/alora-2.jpg" },
-    ],
+    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    gallery: [],
   },
   {
     index: "03",
@@ -97,15 +87,8 @@ export const projects: Project[] = [
       { role: "Director", name: "Sky Moment" },
       { role: "DOP", name: "Sky Moment" },
     ],
-    cover: {
-      type: "image",
-      src: "/images/projects/volkswagen-cover.jpg",
-      poster: "/images/projects/volkswagen-cover.jpg",
-    },
-    gallery: [
-      { type: "image", src: "/images/projects/volkswagen-1.jpg" },
-      { type: "image", src: "/images/projects/volkswagen-2.jpg" },
-    ],
+    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    gallery: [],
   },
   {
     index: "04",
@@ -118,12 +101,8 @@ export const projects: Project[] = [
       "Sweeping aerial coverage of VinWonders' rides and grounds, built to communicate scale and pace in a single flowing sequence.",
     services: ["FPV", "Flycam"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: {
-      type: "image",
-      src: "/images/projects/vinwonders-cover.jpg",
-      poster: "/images/projects/vinwonders-cover.jpg",
-    },
-    gallery: [{ type: "image", src: "/images/projects/vinwonders-1.jpg" }],
+    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    gallery: [],
   },
   {
     index: "05",
@@ -136,12 +115,8 @@ export const projects: Project[] = [
       "A hospitality film moving from wide establishing aerials down to intimate interior detail, framing the resort as one continuous experience.",
     services: ["Flycam", "Photography", "VR360 Tour"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: {
-      type: "image",
-      src: "/images/projects/marriott-cover.jpg",
-      poster: "/images/projects/marriott-cover.jpg",
-    },
-    gallery: [{ type: "image", src: "/images/projects/marriott-1.jpg" }],
+    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    gallery: [],
   },
   {
     index: "06",
@@ -154,12 +129,8 @@ export const projects: Project[] = [
       "Coastal and mountain terrain filmed to emphasize scale, light and the rhythm of the landscape across a full day cycle.",
     services: ["Flycam", "Photography"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: {
-      type: "image",
-      src: "/images/projects/sun-group-cover.jpg",
-      poster: "/images/projects/sun-group-cover.jpg",
-    },
-    gallery: [{ type: "image", src: "/images/projects/sun-group-1.jpg" }],
+    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    gallery: [],
   },
   {
     index: "07",
@@ -172,12 +143,8 @@ export const projects: Project[] = [
       "A calm, image-led study of a private yacht at sea, favoring long aerial holds over fast cuts.",
     services: ["Flycam", "Photography"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: {
-      type: "image",
-      src: "/images/projects/yacht-cover.jpg",
-      poster: "/images/projects/yacht-cover.jpg",
-    },
-    gallery: [{ type: "image", src: "/images/projects/yacht-1.jpg" }],
+    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    gallery: [],
   },
   {
     index: "08",
@@ -190,12 +157,8 @@ export const projects: Project[] = [
       "A city-wide aerial survey of Nha Trang, from the bay to the mountains, shot across several sessions to catch different light.",
     services: ["Flycam", "Photography"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: {
-      type: "image",
-      src: "/images/projects/nha-trang-cover.jpg",
-      poster: "/images/projects/nha-trang-cover.jpg",
-    },
-    gallery: [{ type: "image", src: "/images/projects/nha-trang-1.jpg" }],
+    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    gallery: [],
   },
 ];
 

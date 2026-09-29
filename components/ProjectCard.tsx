@@ -1,35 +1,33 @@
-import Link from "next/link";
-import Image from "next/image";
+import { youtubeThumbnail } from "@/lib/youtube";
 import type { Project } from "@/data/projects";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+  onPlay,
+}: {
+  project: Project;
+  onPlay: (url: string) => void;
+}) {
   return (
-    <Link
-      href={`/work/${project.slug}`}
-      className="group relative block overflow-hidden border-b border-line pb-8"
+    <button
+      type="button"
+      onClick={() => onPlay(project.cover.src)}
+      className="group relative block w-full overflow-hidden border-b border-line pb-8 text-left"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-surface">
-        {project.cover.type === "video" ? (
-          <video
-            className="h-full w-full scale-100 object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105"
-            muted
-            loop
-            playsInline
-            preload="none"
-            poster={project.cover.poster}
-          >
-            <source src={project.cover.src} type="video/mp4" />
-          </video>
-        ) : (
-          <Image
-            src={project.cover.src}
-            alt={project.title}
-            fill
-            sizes="(min-width: 768px) 45vw, 100vw"
-            className="scale-100 object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105"
-          />
-        )}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={youtubeThumbnail(project.cover.src, "maxresdefault")}
+          alt={project.title}
+          className="h-full w-full scale-100 object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105"
+          loading="lazy"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-base/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-ink">
+            <span className="ml-0.5 text-base text-base">&#9658;</span>
+          </span>
+        </span>
       </div>
 
       <div className="mt-5 flex items-start justify-between gap-4">
@@ -49,6 +47,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           &#8599;
         </span>
       </div>
-    </Link>
+    </button>
   );
 }

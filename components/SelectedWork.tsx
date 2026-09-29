@@ -1,17 +1,32 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { projects, filterCategories, ProjectCategory } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
 import RevealOnScroll from "./RevealOnScroll";
+import YouTubePlayer from "./YouTubePlayer";
 
 export default function SelectedWork() {
   const [filter, setFilter] = useState<(typeof filterCategories)[number]>("All");
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     if (filter === "All") return projects;
     return projects.filter((p) => p.categories.includes(filter as ProjectCategory));
   }, [filter]);
+
+  useEffect(() => {
+    if (!activeVideo) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveVideo(null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [activeVideo]);
 
   return (
     <section id="work" className="bg-base px-6 py-28 md:px-10 md:py-36">
@@ -43,7 +58,7 @@ export default function SelectedWork() {
 
         <div className="grid gap-x-10 gap-y-14 md:grid-cols-2">
           {filtered.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <ProjectCard key={project.slug} project={project} onPlay={setActiveVideo} />
           ))}
         </div>
 
@@ -53,6 +68,22 @@ export default function SelectedWork() {
           </p>
         )}
       </div>
+
+      {activeVideo && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 p-4 md:p-10">
+          <button
+            type="button"
+            onClick={() => setActiveVideo(null)}
+            aria-label="Close video"
+            className="absolute right-5 top-5 z-10 font-body text-sm text-ink-dim transition-colors hover:text-ink md:right-10 md:top-10"
+          >
+            Close &#10005;
+          </button>
+          <div className="aspect-video w-full max-w-5xl">
+            <YouTubePlayer url={activeVideo} autoplayOnMount />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

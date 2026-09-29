@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { GalleryItem } from "@/data/projects";
+import YouTubePlayer from "./YouTubePlayer";
 
 export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
   if (items.length === 0) return null;
@@ -24,6 +25,8 @@ export default function ProjectGallery({ items }: { items: GalleryItem[] }) {
             >
               <source src={item.src} type="video/mp4" />
             </video>
+          ) : item.type === "youtube" ? (
+            <YouTubePlayer url={item.src} />
           ) : (
             <Image
               src={item.src}

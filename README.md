@@ -35,6 +35,31 @@ public/
   images/hero/            poster/fallback images
 ```
 
+## Using YouTube links instead of local video files
+
+Every video slot on the site can be a YouTube link instead of a file in
+`public/`:
+
+- **Hero background** and **Showreel**: open `data/media.ts`, switch
+  `heroMedia` / `showreelMedia` to `{ kind: "youtube", url: "..." }`.
+- **Service hover video**, **project cover**, **project gallery items**:
+  in `data/services.ts` / `data/projects.ts`, set that item's
+  `type: "youtube"` and `src` to the YouTube link (or bare video ID).
+
+Paste any common YouTube URL format (`youtube.com/watch?v=...`,
+`youtu.be/...`, `youtube.com/shorts/...`) — `lib/youtube.ts` parses the
+ID for you and fetches YouTube's own thumbnail automatically, so you
+don't need to supply a poster image for YouTube items.
+
+Two playback styles are used, matching what each slot needs:
+
+- **Hero / Showreel background / project cover** (`YouTubeBackground.tsx`)
+  autoplays muted and loops silently, like the local `<video>` it replaces.
+- **Showreel lightbox / gallery items** (`YouTubePlayer.tsx`) show the
+  YouTube thumbnail with a play button first, and only load the actual
+  player once clicked — keeps the page light since nothing streams
+  until the visitor asks for it.
+
 ## Replacing media
 
 Every video/image path lives in `data/*.ts` or is set once in a

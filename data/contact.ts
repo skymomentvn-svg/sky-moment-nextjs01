@@ -16,29 +16,29 @@ export const contactInfo: {
   tiktok: ContactChannel;
 } = {
   phone: {
-    label: "+84 889 04 0009",
-    value: "+84889040009",
-    href: "tel:+84889040009",
+    label: "+84 90 000 0000",
+    value: "+84900000000",
+    href: "tel:+84900000000",
   },
   email: {
-    label: "skymoment.vn@gmail.com",
-    value: "skymoment.vn@gmail.com",
-    href: "mailto:skymoment.vn@gmail.com",
+    label: "hello@skymoment.vn",
+    value: "hello@skymoment.vn",
+    href: "mailto:hello@skymoment.vn",
   },
   zalo: {
     label: "Zalo",
-    value: "zalo.me/84889040009",
-    href: "https://zalo.me/84889040009",
+    value: "zalo.me/84900000000",
+    href: "https://zalo.me/84900000000",
   },
   facebook: {
     label: "Facebook",
-    value: "facebook.com/skymomentvn",
-    href: "https://facebook.com/skymomentvn",
+    value: "facebook.com/skymoment",
+    href: "https://facebook.com/skymoment",
   },
   instagram: {
     label: "Instagram",
-    value: "@skymomentvn",
-    href: "https://instagram.com/skymomentvn",
+    value: "@skymoment",
+    href: "https://instagram.com/skymoment",
   },
   tiktok: {
     label: "TikTok",
