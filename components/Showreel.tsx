@@ -10,7 +10,6 @@ export default function Showreel() {
   const [playing, setPlaying] = useState(true);
   const [muted, setMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const isYouTube = showreelMedia.kind === "youtube";
 
   useEffect(() => {
     if (!open) return;
@@ -59,7 +58,7 @@ export default function Showreel() {
           onClick={() => setOpen(true)}
           className="group relative mx-auto mt-14 block aspect-video w-full max-w-4xl overflow-hidden rounded-sm bg-surface"
         >
-          {isYouTube ? (
+          {showreelMedia.kind === "youtube" ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={youtubeThumbnail(showreelMedia.url, "maxresdefault")}
@@ -99,7 +98,7 @@ export default function Showreel() {
             Close &#10005;
           </button>
 
-          {isYouTube ? (
+          {showreelMedia.kind === "youtube" ? (
             <div className="aspect-video w-full max-w-5xl">
               <YouTubePlayer url={showreelMedia.url} autoplayOnMount />
             </div>
