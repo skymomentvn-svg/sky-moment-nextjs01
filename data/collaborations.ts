@@ -14,7 +14,7 @@ export const collaborations: Collaboration[] = [
   { name: "Hyatt Regency" },
   { name: "VPS" },
   { name: "KDI Holding" },
-  { name: "Sailing Club", logo: "/images/logos/SCL.png" },
+  { name: "Sailing Club", logo: "public/images/logos/SCL.png" },
   { name: "FlyVietnam" },
   { name: "Marmoris Yachting" },
 ];
