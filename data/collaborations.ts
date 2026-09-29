@@ -16,7 +16,7 @@ export const collaborations: Collaboration[] = [
   { name: "Sailing Club", logo: "public/images/logos/SCL.png" },
   { name: "FlyVietnam" },
   { name: "Marmoris Yachting" },
-  { name: "Ana Marina: },
-  { name: "Vega City: },
-   { name: "VTV2: },
+  { name: "Ana Marina" },
+  { name: "Vega City" },
+  { name: "VTV2" },
 ];
