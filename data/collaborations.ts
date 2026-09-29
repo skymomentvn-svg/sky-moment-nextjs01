@@ -6,14 +6,13 @@ export type Collaboration = {
 // No real logo assets provided yet — rendered as minimal wordmarks
 // until real logo files are dropped into /public/images/logos/.
 export const collaborations: Collaboration[] = [
-  { name: "Sun Group" },
-  { name: "VinFast" },
+  { name: "SunGroup" },
+  { name: "Volkswagen", logo: "/images/logos/Volkswagen xanh_.png" },
   { name: "VinWonders" },
-  { name: "Volkswagen" },
-  { name: "Marriott" },
+  { name: "Volkswageno1" },
+  { name: "Marriott Re" },
   { name: "Hyatt Regency" },
-  { name: "VTV" },
-  { name: "VPS Cup" },
+  { name: "VPS" },
   { name: "KDI Holding" },
   { name: "Sailing Club" },
   { name: "FlyVietnam" },
