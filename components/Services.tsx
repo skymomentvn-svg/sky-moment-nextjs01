@@ -3,11 +3,14 @@
 import { useEffect, useState } from "react";
 import { services } from "@/data/services";
 import RevealOnScroll from "./RevealOnScroll";
-import ServiceCard from "./ServiceCard";
+import ServiceNav from "./ServiceNav";
+import ServiceDetail from "./ServiceDetail";
 import YouTubePlayer from "./YouTubePlayer";
 
 export default function Services() {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const active = services[activeIndex];
 
   useEffect(() => {
     if (!activeVideo) return;
@@ -27,15 +30,14 @@ export default function Services() {
       <div className="mx-auto max-w-content">
         <RevealOnScroll>
           <p className="meta-label mb-4 text-ink-dim">What We Do</p>
-          <h2 className="mb-14 font-display text-display-md font-black uppercase text-ink md:mb-20">
+          <h2 className="mb-14 font-display text-display-md font-black uppercase text-ink md:mb-16">
             Services
           </h2>
         </RevealOnScroll>
 
-        <div className="grid gap-x-10 gap-y-14 md:grid-cols-2">
-          {services.map((service) => (
-            <ServiceCard key={service.slug} service={service} onPlay={setActiveVideo} />
-          ))}
+        <div className="grid gap-10 md:grid-cols-[220px_1fr] md:gap-16">
+          <ServiceNav services={services} activeIndex={activeIndex} onSelect={setActiveIndex} />
+          <ServiceDetail service={active} onPlay={setActiveVideo} />
         </div>
       </div>
 
