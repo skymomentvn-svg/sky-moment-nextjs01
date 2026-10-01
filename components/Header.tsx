@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import FpvDrone from "./FpvDrone";
 
@@ -55,12 +56,15 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-content items-center justify-between px-6 py-5 md:px-10">
-        <Link
-          href="/"
-          className="font-display text-lg font-extrabold tracking-tight text-ink"
-          onClick={() => setMenuOpen(false)}
-        >
-          SKY MOMENT
+        <Link href="/" onClick={() => setMenuOpen(false)} className="shrink-0">
+          <Image
+            src="/images/logo/sky-moment-logo.png"
+            alt="Sky Moment"
+            width={846}
+            height={475}
+            priority
+            className="h-8 w-auto md:h-9"
+          />
         </Link>
 
         <nav className="relative hidden items-center gap-10 md:flex" onMouseLeave={landOff}>

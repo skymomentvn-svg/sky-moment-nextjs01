@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { contactInfo } from "@/data/contact";
 
 const navItems = [
@@ -16,10 +17,14 @@ export default function Footer() {
       <div className="mx-auto max-w-content">
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
-            <p className="font-display text-2xl font-extrabold uppercase text-ink">
-              Sky Moment
-            </p>
-            <p className="mt-3 font-body text-ink-dim">
+            <Image
+              src="/images/logo/sky-moment-logo.png"
+              alt="Sky Moment"
+              width={846}
+              height={475}
+              className="h-10 w-auto"
+            />
+            <p className="mt-4 font-body text-ink-dim">
               Every flight tells a story.
             </p>
           </div>

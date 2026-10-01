@@ -35,8 +35,7 @@ export type Project = {
   gallery: GalleryItem[];
 };
 
-// TODO: replace every "https://www.youtube.com/watch?v=XXXXXXXXXXX"
-// below with that project's real YouTube link.
+// All 8 covers below are real Sky Moment YouTube videos.
 export const projects: Project[] = [
   {
     index: "01",
@@ -53,7 +52,7 @@ export const projects: Project[] = [
       { role: "FPV Pilot", name: "Sky Moment" },
       { role: "Editor", name: "Sky Moment" },
     ],
-    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    cover: { type: "youtube", src: "https://youtu.be/ToTrABrypgk" },
     gallery: [],
   },
   {
@@ -70,7 +69,7 @@ export const projects: Project[] = [
       { role: "Director", name: "Sky Moment" },
       { role: "FPV Pilot", name: "Sky Moment" },
     ],
-    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    cover: { type: "youtube", src: "https://youtu.be/8Yw_QCQ6u1A" },
     gallery: [],
   },
   {
@@ -87,50 +86,54 @@ export const projects: Project[] = [
       { role: "Director", name: "Sky Moment" },
       { role: "DOP", name: "Sky Moment" },
     ],
-    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    cover: { type: "youtube", src: "https://youtu.be/HM6ltf-KyA8" },
     gallery: [],
   },
   {
     index: "04",
-    slug: "vinwonders",
-    title: "VinWonders",
-    year: "2025",
+    slug: "an-camp",
+    title: "An Camp",
+    year: "2026",
     categories: ["FPV", "Tourism"],
-    tagline: "Scale, told through motion.",
+    tagline: "A retreat, found from above.",
     description:
-      "Sweeping aerial coverage of VinWonders' rides and grounds, built to communicate scale and pace in a single flowing sequence.",
-    services: ["FPV", "Flycam"],
+      "A cinematic FPV study of An Camp, tracing the retreat's grounds in one continuous, unhurried flow.",
+    services: ["FPV"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    cover: { type: "youtube", src: "https://youtu.be/oZp1jPeuVj4" },
     gallery: [],
   },
   {
     index: "05",
-    slug: "marriott-resort",
-    title: "Marriott Resort",
-    year: "2025",
-    categories: ["Real Estate", "Tourism"],
-    tagline: "The property, from every altitude.",
+    slug: "miss-world-vietnam-marmoris",
+    title: "Miss World Vietnam",
+    year: "2026",
+    categories: ["Flycam", "Event"],
+    tagline: "A pageant moment, framed by the sea.",
     description:
-      "A hospitality film moving from wide establishing aerials down to intimate interior detail, framing the resort as one continuous experience.",
-    services: ["Flycam", "Photography", "VR360 Tour"],
+      "Flycam coverage of Miss World Vietnam aboard Marmoris Yacht, pairing wide establishing passes with closer, more intimate framing.",
+    services: ["Flycam", "Photography"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    cover: { type: "youtube", src: "https://youtu.be/9VUOEy-Um_M" },
     gallery: [],
   },
   {
     index: "06",
     slug: "sun-group",
     title: "Sun Group",
-    year: "2025",
-    categories: ["Flycam", "Tourism"],
-    tagline: "Landscapes, reframed.",
+    year: "2026",
+    categories: ["FPV", "Event"],
+    tagline: "Nights lit by fireworks and flight.",
     description:
-      "Coastal and mountain terrain filmed to emphasize scale, light and the rhythm of the landscape across a full day cycle.",
-    services: ["Flycam", "Photography"],
+      "FPV coverage across Sun Group's Phu Quoc developments — Sunset Town and Charmora City — from a fireworks show to a New Year's countdown and a live event performance.",
+    services: ["FPV", "Videography"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    gallery: [],
+    cover: { type: "youtube", src: "https://youtu.be/gcV2_DvnDFU" },
+    gallery: [
+      { type: "youtube", src: "https://youtu.be/_xQXuAE-YpY", caption: "Countdown New Year 2026" },
+      { type: "youtube", src: "https://youtu.be/Ih68Vl8bfSA", caption: "FPV Event Performer — Charmora City" },
+      { type: "youtube", src: "https://youtu.be/3CA0ri-wvt8", caption: "Juliet House, Sunset Town" },
+    ],
   },
   {
     index: "07",
@@ -143,7 +146,7 @@ export const projects: Project[] = [
       "A calm, image-led study of a private yacht at sea, favoring long aerial holds over fast cuts.",
     services: ["Flycam", "Photography"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    cover: { type: "youtube", src: "https://youtu.be/Q5_WBWHFPPo" },
     gallery: [],
   },
   {
@@ -157,7 +160,35 @@ export const projects: Project[] = [
       "A city-wide aerial survey of Nha Trang, from the bay to the mountains, shot across several sessions to catch different light.",
     services: ["Flycam", "Photography"],
     credits: [{ role: "Director", name: "Sky Moment" }],
-    cover: { type: "youtube", src: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    cover: { type: "youtube", src: "https://youtu.be/JuZT7-va3DQ" },
+    gallery: [{ type: "youtube", src: "https://youtu.be/S3A3fRzPWm4", caption: "Night flight" }],
+  },
+  {
+    index: "09",
+    slug: "19-8-stadium-nha-trang",
+    title: "19/8 Stadium Nha Trang",
+    year: "2026",
+    categories: ["FPV", "Tourism"],
+    tagline: "A landmark, circled once from the air.",
+    description:
+      "A cinematic FPV pass around Nha Trang's 19 Thang 8 Stadium, tracing its architecture in one continuous line.",
+    services: ["FPV"],
+    credits: [{ role: "Director", name: "Sky Moment" }],
+    cover: { type: "youtube", src: "https://youtu.be/w2ApzAoNlYQ" },
+    gallery: [],
+  },
+  {
+    index: "10",
+    slug: "fpv-watersport-2026",
+    title: "FPV WaterSport 2026",
+    year: "2026",
+    categories: ["FPV", "Tourism"],
+    tagline: "Speed on the water, matched from the air.",
+    description:
+      "Low, fast FPV passes following watersport action, keeping pace with the water itself.",
+    services: ["FPV"],
+    credits: [{ role: "Director", name: "Sky Moment" }],
+    cover: { type: "youtube", src: "https://youtu.be/PfQ5bXmQKQ8" },
     gallery: [],
   },
 ];
